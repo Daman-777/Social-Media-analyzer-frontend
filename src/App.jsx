@@ -23,6 +23,19 @@ function App() {
       document.body.classList.add("light-bg");
     }
   }, [darkMode]);
+  useEffect(() => {
+    const preventDefaults = (e) => {
+      e.preventDefault();
+    };
+
+    window.addEventListener("dragover", preventDefaults);
+    window.addEventListener("drop", preventDefaults);
+
+    return () => {
+      window.removeEventListener("dragover", preventDefaults);
+      window.removeEventListener("drop", preventDefaults);
+    };
+  }, []);
 
   const handleUpload = async () => {
     if (!file) {
@@ -72,17 +85,26 @@ function App() {
         className={`upload-box ${dragActive ? "drag-active" : ""}`}
         onDragEnter={(e) => {
           e.preventDefault();
+          e.stopPropagation();
           setDragActive(true);
         }}
         onDragOver={(e) => {
           e.preventDefault();
+          e.stopPropagation();
         }}
-        onDragLeave={() => setDragActive(false)}
+        onDragLeave={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setDragActive(false);
+        }}
         onDrop={(e) => {
           e.preventDefault();
+          e.stopPropagation();
           setDragActive(false);
-          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            setFile(e.dataTransfer.files[0]);
+
+          const droppedFile = e.dataTransfer.files[0];
+          if (droppedFile) {
+            setFile(droppedFile);
           }
         }}
       >
@@ -92,7 +114,10 @@ function App() {
           type="file"
           onChange={(e) => setFile(e.target.files[0])}
         />
+
+        {file && <p>Selected: {file.name}</p>}
       </div>
+
 
 
       <button onClick={handleUpload}>Analyze</button>
