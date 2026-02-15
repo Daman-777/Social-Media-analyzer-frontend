@@ -184,3 +184,16 @@ button:hover {
   border-radius: 20px;
   transition: width 0.5s ease;
 }
+.upload-box {
+  border: 2px dashed #888;
+  padding: 40px;
+  text-align: center;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.upload-box.drag-active {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
