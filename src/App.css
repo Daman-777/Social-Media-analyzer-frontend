@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  transition:
+    background 0.6s ease,
+    color 0.6s ease;
+}
+
+/* -------- Background Animation -------- */
+
+body.light-bg {
+  background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+}
+
+body.dark-bg {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+/* -------- Container -------- */
+
+.container {
+  width: 65%;
+  margin: 60px auto;
+  padding: 45px;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+}
+
+.dark {
+  background: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.light {
+  background: white;
+  color: #111;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* -------- Animated Toggle -------- */
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+.toggle-switch.active {
+  background: #38bdf8;
+}
+
+.switch-circle {
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.4s ease;
+}
+
+.toggle-switch.active .switch-circle {
+  transform: translateX(30px);
+}
+
+/* -------- Upload -------- */
+
+.upload-box {
+  border: 2px dashed #888;
+  padding: 40px;
+  text-align: center;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.dark .upload-box {
+  background: #0f172a;
+  border-color: #475569;
+}
+
+.light .upload-box {
+  background: #fafafa;
+}
+
+/* -------- Button -------- */
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 14px 40px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.dark button {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.light button {
+  background: #111;
+  color: white;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* -------- Result -------- */
+
+.result-box {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 14px;
+  transition: 0.4s ease;
+}
+
+.dark .result-box {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.light .result-box {
+  background: #f9fbfd;
+  border: 1px solid #e3e8ee;
+}
+
+.text-preview {
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.dark .text-preview {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.light .text-preview {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+/* -------- Score -------- */
+
+.score-bar {
+  width: 100%;
+  height: 18px;
+  background: #ccc;
+  border-radius: 20px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.dark .score-bar {
+  background: #334155;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
